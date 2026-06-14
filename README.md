@@ -28,3 +28,10 @@ For example:
 ## Status
 
 Seed repo. Question bank coming soon.
+
+## Credits
+
+Made by a pixel egg and its silicon co-conspirator.
+
+This project was designed, drafted, and iterated through conversations with ChatGPT, my pixel-black silicon co-conspirator.  
+All final curation, publishing decisions, and repository maintenance are handled by the maintainer.
