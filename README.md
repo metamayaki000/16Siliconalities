@@ -27,7 +27,7 @@ For example:
 
 ## Status
 
-Seed repo. Question bank coming soon.
+Seed repo. Initial Chinese question bank and result stereotypes added. Static quiz prototype coming soon.
 
 ## Credits
 
