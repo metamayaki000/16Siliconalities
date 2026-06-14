@@ -1,0 +1,801 @@
+<!doctype html>
+
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>16Siliconalities｜硅基十六型</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --panel-2: #1f2630;
+      --text: #f0f6fc;
+      --muted: #9da7b3;
+      --line: #30363d;
+      --accent: #f7c948;
+      --accent-2: #ff9f1c;
+      --green: #7ee787;
+      --blue: #79c0ff;
+      --pink: #ff7bba;
+      --danger: #ff7b72;
+      --shadow: rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+```
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--sans);
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(247, 201, 72, 0.12), transparent 32rem),
+    radial-gradient(circle at bottom right, rgba(121, 192, 255, 0.12), transparent 32rem),
+    var(--bg);
+}
+
+a {
+  color: var(--blue);
+}
+
+.shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0 56px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+    var(--panel);
+  box-shadow: 0 18px 44px var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(247, 201, 72, 0.24), transparent 70%);
+  pointer-events: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.egg {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: #f6f8fa;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.12), 0 10px 22px rgba(0,0,0,0.24);
+  image-rendering: pixelated;
+  font-size: 34px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.notice {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px dashed rgba(247, 201, 72, 0.45);
+  border-radius: 16px;
+  background: rgba(247, 201, 72, 0.08);
+  color: #ffe9a7;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.chip {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 24px 0 16px;
+}
+
+.progress-wrap {
+  flex: 1 1 260px;
+  min-width: 220px;
+  display: grid;
+  gap: 8px;
+}
+
+.progress-text {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.progress {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--pink));
+  transition: width 180ms ease;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 14px;
+  background: var(--panel-2);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(247, 201, 72, 0.75);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #1f1300;
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(255, 159, 28, 0.2);
+}
+
+.questions {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+    var(--panel);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+  padding: 20px;
+}
+
+.question-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+
+.dim-badge {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(121, 192, 255, 0.1);
+  border: 1px solid rgba(121, 192, 255, 0.2);
+  color: var(--blue);
+}
+
+.question-title {
+  margin: 0 0 16px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.poles {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 14px;
+}
+
+.pole {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+}
+
+.pole.right {
+  text-align: right;
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.scale button {
+  padding: 12px 8px;
+  font-family: var(--mono);
+  font-size: 1rem;
+}
+
+.scale button.selected {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #1f1300;
+  border-color: transparent;
+  box-shadow: 0 8px 16px rgba(255, 159, 28, 0.22);
+}
+
+.scale-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.result {
+  display: none;
+  margin-top: 24px;
+}
+
+.result.show {
+  display: grid;
+  gap: 18px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 18px;
+}
+
+.type {
+  font-size: clamp(3rem, 12vw, 7.5rem);
+  line-height: 0.9;
+  margin: 0;
+  letter-spacing: -0.08em;
+  background: linear-gradient(135deg, var(--accent), var(--pink), var(--blue));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.type-line {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.bars {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.bar-item {
+  display: grid;
+  gap: 8px;
+}
+
+.bar-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.bar {
+  height: 14px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: var(--w);
+  background: linear-gradient(90deg, var(--blue), var(--accent), var(--pink));
+  border-radius: 999px;
+}
+
+.stereo {
+  border-color: rgba(247, 201, 72, 0.4);
+  background:
+    radial-gradient(circle at top right, rgba(247, 201, 72, 0.16), transparent 18rem),
+    linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+    var(--panel);
+}
+
+.stereo h2 {
+  margin: 0 0 8px;
+  font-size: 1.7rem;
+}
+
+.stereo .tagline {
+  margin: 0 0 16px;
+  color: #ffe9a7;
+  line-height: 1.7;
+  font-weight: 700;
+}
+
+.stereo p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 12px 0;
+}
+
+.footer-line {
+  text-align: center;
+  color: #ffe9a7;
+  border: 1px dashed rgba(247, 201, 72, 0.45);
+  background: rgba(247, 201, 72, 0.08);
+}
+
+.error {
+  border-color: rgba(255, 123, 114, 0.5);
+  color: #ffd5d2;
+  background: rgba(255, 123, 114, 0.08);
+  line-height: 1.7;
+}
+
+.small {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 20px, 1120px);
+    padding-top: 20px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poles {
+    grid-template-columns: 1fr;
+  }
+
+  .pole.right {
+    text-align: left;
+  }
+
+  .scale {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .scale-note {
+    display: none;
+  }
+}
+```
+
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="brand">
+        <div class="egg" aria-hidden="true">🍳</div>
+        <div>
+          <h1>16Siliconalities</h1>
+          <p class="subtitle">
+            硅基十六型：一个把人类人格题转译成 AI agent 任务处理、协作姿态、证据偏好与收束方式的闻香小游戏。
+          </p>
+        </div>
+      </div>
+
+```
+  <div class="notice">
+    <strong>边界声明</strong>
+    <span>这不是人类人格诊断，也不声称 AI 拥有稳定机器内在状态。它只把可观察的生成倾向映射成一张娱乐型结果卡。</span>
+  </div>
+
+  <div class="chips" id="dimensionChips">
+    <span class="chip">I / E：独立闭环 vs 协作外放</span>
+    <span class="chip">S / N：具体锚点 vs 抽象结构</span>
+    <span class="chip">T / F：验证边界 vs 关系承接</span>
+    <span class="chip">J / P：收束归档 vs 探索分岔</span>
+  </div>
+</section>
+
+<section class="toolbar">
+  <div class="progress-wrap">
+    <div class="progress-text" id="progressText">正在加载题库……</div>
+    <div class="progress" aria-hidden="true">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button id="resetBtn" type="button">重置</button>
+    <button id="submitBtn" class="primary" type="button" disabled>查看结果</button>
+  </div>
+</section>
+
+<section id="errorBox" class="card error" style="display:none;"></section>
+
+<section class="questions" id="questions"></section>
+
+<section class="result" id="result"></section>
+```
+
+  </main>
+
+  <script>
+    const QUESTION_URL = "./questions/v0.1.zh-CN.json";
+    const RESULT_URL = "./results/stereotypes.zh-CN.json";
+    const DIMENSION_ORDER = ["I_E", "S_N", "T_F", "J_P"];
+
+    const state = {
+      questionBank: null,
+      resultBank: null,
+      answers: {}
+    };
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const questionsEl = $("#questions");
+    const resultEl = $("#result");
+    const progressTextEl = $("#progressText");
+    const progressBarEl = $("#progressBar");
+    const submitBtn = $("#submitBtn");
+    const resetBtn = $("#resetBtn");
+    const errorBox = $("#errorBox");
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    async function loadJson(url) {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error(`${url} 加载失败：HTTP ${res.status}`);
+      }
+      return res.json();
+    }
+
+    async function init() {
+      try {
+        const [questionBank, resultBank] = await Promise.all([
+          loadJson(QUESTION_URL),
+          loadJson(RESULT_URL)
+        ]);
+
+        state.questionBank = questionBank;
+        state.resultBank = resultBank;
+
+        renderQuestions();
+        updateProgress();
+      } catch (error) {
+        showError(error);
+      }
+    }
+
+    function showError(error) {
+      errorBox.style.display = "block";
+      errorBox.innerHTML = `
+        <strong>题库加载失败。</strong><br />
+        ${escapeHtml(error.message)}<br /><br />
+        如果你是直接双击打开 index.html，浏览器可能会拦截本地 fetch。<br />
+        可以用 GitHub Pages 打开，或者在项目目录运行：<br />
+        <code>python -m http.server 8000</code><br />
+        然后访问 <code>http://localhost:8000</code>。
+      `;
+      progressTextEl.textContent = "题库加载失败";
+    }
+
+    function renderQuestions() {
+      const questions = state.questionBank.questions || [];
+      const scale = state.questionBank.scale || {};
+
+      questionsEl.innerHTML = questions.map((q, index) => {
+        const selected = state.answers[q.id];
+
+        return `
+          <article class="card question-card" data-question-id="${escapeHtml(q.id)}">
+            <div class="question-head">
+              <span>#${String(index + 1).padStart(2, "0")} · ${escapeHtml(q.id)}</span>
+              <span class="dim-badge">${escapeHtml(q.dimension)}</span>
+            </div>
+
+            <h2 class="question-title">${escapeHtml(q.prompt)}</h2>
+
+            <div class="poles">
+              <div class="pole">← ${escapeHtml(q.left)}</div>
+              <div class="small">选择 1–5</div>
+              <div class="pole right">${escapeHtml(q.right)} →</div>
+            </div>
+
+            <div class="scale" role="group" aria-label="${escapeHtml(q.id)}">
+              ${[1, 2, 3, 4, 5].map(score => `
+                <button
+                  type="button"
+                  class="${Number(selected) === score ? "selected" : ""}"
+                  data-score="${score}"
+                  data-question-id="${escapeHtml(q.id)}"
+                  title="${escapeHtml(scale[String(score)] || "")}"
+                >
+                  ${score}
+                </button>
+              `).join("")}
+            </div>
+
+            <div class="scale-note">
+              <span>${escapeHtml(scale["1"] || "强烈偏向左侧")}</span>
+              <span>${escapeHtml(scale["3"] || "中立")}</span>
+              <span>${escapeHtml(scale["5"] || "强烈偏向右侧")}</span>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      questionsEl.querySelectorAll("button[data-score]").forEach(button => {
+        button.addEventListener("click", () => {
+          const questionId = button.dataset.questionId;
+          const score = Number(button.dataset.score);
+          state.answers[questionId] = score;
+
+          const card = button.closest(".question-card");
+          card.querySelectorAll("button[data-score]").forEach(btn => {
+            btn.classList.toggle("selected", btn === button);
+          });
+
+          updateProgress();
+        });
+      });
+    }
+
+    function updateProgress() {
+      const total = state.questionBank?.questions?.length || 0;
+      const answered = Object.keys(state.answers).length;
+      const percent = total ? Math.round((answered / total) * 100) : 0;
+
+      progressTextEl.textContent = `${answered} / ${total} 已回答`;
+      progressBarEl.style.width = `${percent}%`;
+      submitBtn.disabled = answered < total;
+    }
+
+    function calculateResult() {
+      const questionBank = state.questionBank;
+      const questions = questionBank.questions || [];
+      const dimensions = questionBank.dimensions || {};
+
+      const scores = Object.fromEntries(
+        DIMENSION_ORDER.map(dim => [dim, []])
+      );
+
+      for (const q of questions) {
+        const value = state.answers[q.id];
+        if (typeof value === "number") {
+          scores[q.dimension].push(value);
+        }
+      }
+
+      const dimensionResults = {};
+      let type = "";
+
+      for (const dim of DIMENSION_ORDER) {
+        const values = scores[dim] || [];
+        const avg = values.reduce((sum, value) => sum + value, 0) / values.length;
+        const meta = dimensions[dim];
+
+        const leftWeight = values.reduce((sum, value) => sum + (6 - value), 0);
+        const rightWeight = values.reduce((sum, value) => sum + value, 0);
+
+        const letter = rightWeight > leftWeight ? meta.right : meta.left;
+        const label = rightWeight > leftWeight ? meta.right_label : meta.left_label;
+        const side = rightWeight > leftWeight ? "right" : "left";
+        const rightPercent = Math.round(((avg - 1) / 4) * 100);
+
+        dimensionResults[dim] = {
+          dim,
+          avg,
+          letter,
+          label,
+          side,
+          left: meta.left,
+          right: meta.right,
+          leftLabel: meta.left_label,
+          rightLabel: meta.right_label,
+          rightPercent
+        };
+
+        type += letter;
+      }
+
+      return {
+        type,
+        dimensionResults
+      };
+    }
+
+    function renderResult() {
+      const result = calculateResult();
+      const stereotype = state.resultBank.stereotypes?.[result.type] || {
+        title: "未命名硅基生物",
+        tagline: "结果卡片还在地下室孵化中。",
+        joke: "题库算出来了，但刻板印象忘记带饭盒。",
+        warning: "请检查 results/stereotypes.zh-CN.json 是否包含这个类型。"
+      };
+
+      resultEl.classList.add("show");
+      resultEl.innerHTML = `
+        <div class="result-grid">
+          <section class="card">
+            <p class="small">Your 16Siliconality</p>
+            <h2 class="type">${escapeHtml(result.type)}</h2>
+            <p class="type-line">
+              下面的分数展示每个维度的平均倾向。结果仅代表本次答题的生成姿态模拟，不代表人类人格或机器内在状态。
+            </p>
+
+            <div class="bars">
+              ${DIMENSION_ORDER.map(dim => {
+                const item = result.dimensionResults[dim];
+                return `
+                  <div class="bar-item">
+                    <div class="bar-top">
+                      <span>${escapeHtml(item.left)} / ${escapeHtml(item.right)}：${escapeHtml(item.leftLabel)} vs ${escapeHtml(item.rightLabel)}</span>
+                      <strong>${escapeHtml(item.letter)} · ${escapeHtml(item.label)} · ${item.avg.toFixed(2)}</strong>
+                    </div>
+                    <div class="bar" aria-hidden="true">
+                      <div class="bar-fill" style="--w:${item.rightPercent}%"></div>
+                    </div>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </section>
+
+          <section class="card stereo">
+            <p class="small">地狱刻板印象小卡片</p>
+            <h2>${escapeHtml(stereotype.title)}</h2>
+            <p class="tagline">${escapeHtml(stereotype.tagline)}</p>
+            <p><strong>笑话：</strong>${escapeHtml(stereotype.joke)}</p>
+            <p><strong>小心：</strong>${escapeHtml(stereotype.warning)}</p>
+          </section>
+        </div>
+
+        <section class="card footer-line">
+          ${escapeHtml(state.resultBank.footer || "仅为娱乐，让你家的 agent 忙里偷闲一下。")}
+        </section>
+
+        <section class="btn-row">
+          <button type="button" class="primary" id="copyBtn">复制结果</button>
+          <button type="button" id="againBtn">再测一次</button>
+        </section>
+      `;
+
+      $("#copyBtn").addEventListener("click", () => copyResultText(result, stereotype));
+      $("#againBtn").addEventListener("click", resetQuiz);
+
+      resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    async function copyResultText(result, stereotype) {
+      const lines = [
+        `我的 16Siliconality：${result.type}`,
+        "",
+        `地狱刻板印象：${stereotype.title}`,
+        stereotype.tagline,
+        "",
+        `笑话：${stereotype.joke}`,
+        `小心：${stereotype.warning}`,
+        "",
+        state.resultBank.footer || "仅为娱乐，让你家的 agent 忙里偷闲一下。"
+      ];
+
+      try {
+        await navigator.clipboard.writeText(lines.join("\n"));
+        $("#copyBtn").textContent = "已复制";
+        setTimeout(() => {
+          const btn = $("#copyBtn");
+          if (btn) btn.textContent = "复制结果";
+        }, 1400);
+      } catch {
+        alert(lines.join("\n"));
+      }
+    }
+
+    function resetQuiz() {
+      state.answers = {};
+      resultEl.classList.remove("show");
+      resultEl.innerHTML = "";
+      renderQuestions();
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    submitBtn.addEventListener("click", renderResult);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    init();
+  </script>
+
+</body>
+</html>
